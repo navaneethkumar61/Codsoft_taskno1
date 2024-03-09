@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<head>
+<title>My Portfolio</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="header">
+<i class="fa-solid fa-bars" id="menuicon"></i>
+<nav class="nav">
+<a href="My portfolio.html">Home</a>
+<a href="#about">About</a>
+<a href="#skills">Skills & Educational details</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
+
+<section class="home" id="menu">
+<div class="info">
+<br>
+<h3>Hi, Myself</h3>
+<h1>Kondamadugu Navaneeth Kumar</h1>
+<h3>and I'm Student</h3>
+<div class="media">
+<a href="https://www.linkedin.com/in/navaneeth-bharadwaj/"><i class="fa-brands fa-linkedin"></i></a>
+<a href="https://github.com/navaneethkumar61"><i class="fa-brands fa-square-github"></i></a>
+</div>
+<br>
+<a href="#" onclick="DownloadFile('My resume.pdf')" class="btn">Download Resume</a>
+<a href="My resume.pdf" onclick="My resume.pdf" class="btn">View Resume</a>
+</div>
+<div class="img">
+<img src="me.jpg">
+</div>
+</section>
+
+<section class="about" id="about">
+<div class="aboutimg">
+<img src="me2.jpg">
+</div>
+<div class="aboutcontent">
+<h2 class="heading">About <span>Me</span></h2>
+<p>I am K.Navaneeth Kumar born and brought at Banaganapalli. My current resident present now is Amaravathi. 
+I am a 2nd year student in B.tech CSE from SRM University. I have skills that are mentioned in the resume,
+which is mentioned right of About me.</p>
+</div>
+</section>
+
+<section class="skills" id="skills">
+<h3>Skills:</h3>
+<ul>
+<li>C,C++</li>
+<li>HTML,CSS,Javascript</li>
+<li>Datastructures using C</li>
+<li>SQL</li>
+</ul>
+<br><br><br>
+<h3>Education details:</h3>
+<ul>
+<li>Schooling at Ravindra Bharathi School,Kurnool</li>
+<li>Intermediate at Narayana Junior College</li>
+<li>Present B.Tech at SRM University</li>
+</ul> 
+</section>
+
+<section class="contact" id="contact">
+<h2 class="heading">Contact<span> Me</span></h2>
+<form action="#">
+<div class="input-box">
+<input type="text" placeholder="Full Name"> 
+<input type="email" placeholder="Email address">
+</div>
+<div class="input-box">
+<input type="number" placeholder="Mobile number"> 
+<input type="text" placeholder="Email subject">
+</div>
+<textarea name="" id="" cols="30" rows="10" placeholder="Your message"></textarea>
+<input type="submit" value="Send message" class="btn">
+</form>
+</section>
+
+<script type="text/javascript">
+        function DownloadFile(fileName) {
+            //Set the File URL.
+            var url = "Files/" + fileName;
+ 
+            //Create XMLHTTP Request.
+            var req = new XMLHttpRequest();
+            req.open("GET", url, true);
+            req.responseType = "blob";
+            req.onload = function () {
+                //Convert the Byte Data to BLOB object.
+                var blob = new Blob([req.response], { type: "application/octetstream" });
+ 
+                //Check the Browser type and download the File.
+                var isIE = false || !!document.documentMode;
+                if (isIE) {
+                    window.navigator.msSaveBlob(blob, fileName);
+                } else {
+                    var url = window.URL || window.webkitURL;
+                    link = url.createObjectURL(blob);
+                    var a = document.createElement("a");
+                    a.setAttribute("download", fileName);
+                    a.setAttribute("href", link);
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                }
+            };
+            req.send();
+        };
+    </script>
+</body>
